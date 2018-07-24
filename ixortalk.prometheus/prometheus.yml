@@ -63,7 +63,7 @@ scrape_configs:
           group: 'Spring boot metrics'
           name: 'ixortalk-authserver'
           prometheus_url: '${ixortalk.server.authserver.context-path}/actuator/prometheus_metrics'
-      - targets: ['ixortalk-user-registration-api:8505']
+      - targets: ['ixortalk-user-registration-api:${ixortalk.loadbalancer.internal.port}']
         labels:
           group: 'Spring boot metrics'
           name: 'ixortalk-user-registration-api'
