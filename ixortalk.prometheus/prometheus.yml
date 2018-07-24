@@ -63,6 +63,11 @@ scrape_configs:
           group: 'Spring boot metrics'
           name: 'ixortalk-authserver'
           prometheus_url: '${ixortalk.server.authserver.context-path}/actuator/prometheus_metrics'
+      - targets: ['ixortalk-user-registration-api:8505']
+        labels:
+          group: 'Spring boot metrics'
+          name: 'ixortalk-user-registration-api'
+          prometheus_url: '${ixortalk.server.user-registration-api.context-path}/actuator/prometheus'
 
     relabel_configs:
       - source_labels: [prometheus_url]
@@ -102,6 +107,11 @@ scrape_configs:
         labels:
             group: 'Spring boot health'
             name: 'ixortalk-mailing-service health'
+            prometheus_url: '${ixortalk.server.prometheus-support.context-path}${ixortalk.server.blackbox-exporter.context-path}/probe'
+      - targets: ['${ixortalk.server.user-registration-api.url}/actuator/health']
+        labels:
+            group: 'Spring boot health'
+            name: 'ixortalk-user-registration-api health'
             prometheus_url: '${ixortalk.server.prometheus-support.context-path}${ixortalk.server.blackbox-exporter.context-path}/probe'
 
     relabel_configs:

@@ -29,6 +29,10 @@ zuul:
       sensitiveHeaders:
       path: /uaa/**
       url: ${ixortalk.server.authserver.url}/
+    user-registration-api:
+      sensitiveHeaders:
+      path: /user-registration/**
+      url: ${ixortalk.server.user-registration-api.url}/
     assetmgmt-service:
       sensitiveHeaders:
       path: /assetmgmt/**
@@ -114,6 +118,9 @@ ixortalk:
     uaa-service:
       permitAll: true
       hasAnyRole: ADMIN, USER
+      csrf-enabled: false
+    user-registration-api:
+      permitAll: true
       csrf-enabled: false
     assetmgmt-service:
       permitAll: true

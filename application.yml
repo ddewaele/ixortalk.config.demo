@@ -45,6 +45,10 @@ ixortalk:
           port: ${ixortalk.loadbalancer.internal.port}
           context-path: /uaa
           url: ${ixortalk.loadbalancer.internal.protocol}://${ixortalk.loadbalancer.internal.host}:${ixortalk.server.authserver.port}${ixortalk.server.authserver.context-path}
+      user-registration-api:
+          port: ${ixortalk.loadbalancer.internal.port}
+          context-path: /user-registration
+          url: ${ixortalk.loadbalancer.internal.protocol}://${ixortalk.loadbalancer.internal.host}:${ixortalk.server.user-registration-api.port}${ixortalk.server.user-registration-api.context-path}
       blackbox-exporter:
           port: ${ixortalk.loadbalancer.internal.port}
           context-path: /blackbox-exporter
