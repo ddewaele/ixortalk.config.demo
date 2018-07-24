@@ -67,7 +67,7 @@ scrape_configs:
         labels:
           group: 'Spring boot metrics'
           name: 'ixortalk-user-registration-api'
-          prometheus_url: '${ixortalk.server.user-registration-api.context-path}/actuator/prometheus'
+          prometheus_url: '${ixortalk.server.user-registration-api.context-path}/actuator/prometheus_metrics'
 
     relabel_configs:
       - source_labels: [prometheus_url]
